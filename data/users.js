@@ -28,7 +28,7 @@ export const users = [
   },
   {
     id: 4,
-    name: "Claybourne",
+    name: "Claybo",
     phone: "1539111307",
     email: "cgittoes3@dion.ne.jp",
     address: "926 Vernon Circle",
@@ -55,9 +55,9 @@ export const users = [
   },
   {
     id: 7,
-    name: "Reginauld",
+    name: "Regina",
     phone: "9885158726",
-    email: "rmeeron6@networkadvertising.org",
+    email: "rmeeron6@vertising.org",
     address: "350 5th Road",
     age: 16,
     photoUrl: "https://picsum.photos/250/250",
