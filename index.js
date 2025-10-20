@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { users } = require('./data/users.js');
+const { users } = require('./data/users.js'); // Import data
 
 const PORT = 3000;
 
@@ -10,6 +10,7 @@ app.use(express.json());
 
 // *** ENDPOINTS: ***
 
+// Gets list of all users
 app.get('/users', (req, res) => {
     res.json({
         status: true,
@@ -18,8 +19,10 @@ app.get('/users', (req, res) => {
     });
 })
 
+// Creates a new user and prepend to the start of the list
 app.post('/users', (req, res) => {
 
+    // Validates that all required data is present first
     if(!req.body || !req.body.name || !req.body.phone || !req.body.email || !req.body.address || !req.body.age || !req.body.photoUrl){
         res.status(400).json({
             status: false,
@@ -30,6 +33,7 @@ app.post('/users', (req, res) => {
 
     const { name, phone, email, address, age, photoUrl } = req.body;
 
+    // Prepend to the list of users
     users.unshift({id: users.length + 1, name, phone, email, address, age, photoUrl});
 
     res.json({
@@ -38,6 +42,7 @@ app.post('/users', (req, res) => {
     })
 })
 
+// Not found handler
 app.use((req, res) => {
     res.status(404).json({
         status: false,
@@ -45,6 +50,7 @@ app.use((req, res) => {
     })
 })
 
+// Starts server
 app.listen(PORT, () => {
     console.log(`App running in http://localhost:${PORT}`);
 })
